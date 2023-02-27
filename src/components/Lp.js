@@ -10,9 +10,17 @@ export function Lp() {
           <Link className="btn btn-primary" href="/home">
             login with twitter
           </Link>
-          <Link className="btn btn-primary" href="/test">
-            test
+
+          
+          <Link className="block mt-4" href="/test_db">
+            DB疎通テスト
           </Link>
+
+
+          <Link className="block mt-4" href="/test_auth">
+            twitter 認証テスト
+          </Link>
+
 
         </div>
       </div>
