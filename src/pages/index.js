@@ -8,7 +8,6 @@ export default function Index() {
       <div className="h-14 p-4 flex items-center">
         <Link href="/home" className="font-bold text-2xl"><span className="text-primary">X</span>List</Link>
       </div>
-
       <Lp />
     </div>
   )

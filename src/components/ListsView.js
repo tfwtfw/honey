@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function ListsView() {
   return (
-    <div className="border-r w-2/5">
+    <div className="border-r w-4/12">
 
       {/* Header of ListsView */}
       <div className="px-2 py-1 text-sm text-slate-400 border-b flex justify-between">

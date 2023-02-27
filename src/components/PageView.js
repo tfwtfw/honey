@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function PageView() {
   return (
-    <div className="border-r w-2/5 p-6 flex flex-col gap-4">
+    <div className="border-r w-5/12 p-6 flex flex-col gap-4">
 
       {/* Title of List */}
       <div className="p-6">

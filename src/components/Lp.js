@@ -10,6 +10,10 @@ export function Lp() {
           <Link className="btn btn-primary" href="/home">
             login with twitter
           </Link>
+          <Link className="btn btn-primary" href="/test">
+            test
+          </Link>
+
         </div>
       </div>
     </div>
