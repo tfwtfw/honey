@@ -1,3 +1,6 @@
+// index.js
+// 空白のページです。ログイン状態によって/welcome、または/homeにリダイレクトします。
+
 import { useUser } from '@supabase/auth-helpers-react'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'

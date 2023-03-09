@@ -1,3 +1,6 @@
+// welcome.js
+// 未ログインの場合に表示するLPです。ここからログインします。
+
 import Link from 'next/link'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useRouter } from 'next/router'
@@ -42,7 +45,7 @@ export default function Welcome() {
     <div className='wrapper h-screen flex flex-col'>
 
       {/* ヘッダー */}
-      <Header />
+      <Header page="welcome"/>
 
       {/* メイン */}
       <div className="h-full text-center px-4">

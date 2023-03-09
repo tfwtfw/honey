@@ -1,7 +1,11 @@
-import { AppList } from '@/components/AppsView'
-import { ListsView } from '@/components/ListsView'
+// home.js
+// ログイン後のメインとなるページです。
+
+import { Apps } from '@/components/Apps'
+import { Header } from '@/components/Header'
+import { Lists } from '@/components/Lists'
 import { PageView } from '@/components/PageView'
-import { SideMenu } from '@/components/SideMenu'
+import { Menu } from '@/components/Menu'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Link from '@supabase/ui/dist/cjs/components/Typography/Link'
 import { useRouter } from 'next/router'
@@ -16,7 +20,6 @@ export default function Home() {
   const router = useRouter();
 
 
-
   useEffect(() => {
     // 未ログインの場合は/へ
     if (!user) router.push('/');
@@ -25,53 +28,28 @@ export default function Home() {
       let { data } = await supabase.from('countries').select();
       console.log(data)
     })
-
-
-
-    return () => {
-    }
-
-
   }, [])
 
 
-  console.log(user)
-
-  // ログアウト処理
-  async function signout() {
-    const { error } = await supabase.auth.signOut()
-    // cookie削除
-    document.cookie = "supabase-auth-token=; max-age=0";
-    router.reload()
-  }
-
-  
-
-
   return (
-    <div className='wrapper h-screen flex'>
-      <SideMenu />
-      <div className='flex-1 flex flex-col'>
-        <AppList />
-        <div className='main flex-1 flex'>
-          <ListsView />
-          <PageView />
+    <div className='wrapper h-screen'>
 
-        </div>
+      {/* ヘッダー */}
+      <Header />
 
-        {/* ログアウトボタン */}
-        <button className="btn btn-primary" onClick={signout}>
-          サインアウト
-        </button>
+      {/* メイン */}
+      <div className='max-w-5xl mx-auto'>
+        <Menu />
+        <Apps />
+        <Lists />
+      </div>
+
+      {/* デバッグ用 */}
+      <div className='p-4'>
         <Link className="block mt-4" href="/test_db">
           DB疎通テスト
         </Link>
-
-
       </div>
-      {/* {console.log(user)} */}
-      {/* {user.user_metadata.name} */}
-
 
     </div>
   )
