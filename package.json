@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@next/font": "13.2.0",
+    "@supabase/auth-helpers-nextjs": "^0.5.4",
+    "@supabase/auth-helpers-react": "^0.3.1",
+    "@supabase/auth-ui-react": "^0.3.0",
     "@supabase/supabase-js": "^2.8.0",
+    "@supabase/ui": "^0.36.5",
     "daisyui": "^2.51.0",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.0",

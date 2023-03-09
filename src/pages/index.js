@@ -1,14 +1,29 @@
-import { Lp } from '@/components/Lp'
-import Link from 'next/link'
+import { useUser } from '@supabase/auth-helpers-react'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 
 export default function Index() {
+
+
+  const user = useUser();
+  const router = useRouter();
+
+
+  useEffect(() => {
+    if (user) {
+      // ログイン済みの場合は/homeへ
+      router.push('/home');
+    } else {
+      // 未ログインの場合は/welcomeへ
+      router.push('/welcome');
+    }
+  }, [user])
+
+
   return (
-    <div className='wrapper h-screen flex flex-col'>
-      <div className="h-14 p-4 flex items-center">
-        <Link href="/home" className="font-bold text-2xl"><span className="text-primary">X</span>List</Link>
-      </div>
-      <Lp />
-    </div>
+    <></>
   )
+
+
 }

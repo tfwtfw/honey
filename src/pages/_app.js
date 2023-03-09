@@ -1,7 +1,15 @@
 import '@/styles/globals.css'
 import Head from 'next/head'
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { SessionContextProvider } from '@supabase/auth-helpers-react'
+import { useState } from 'react'
+
 
 export default function App({ Component, pageProps }) {
+
+  // Create a new supabase browser client on every first render.
+  const [supabaseClient] = useState(() => createBrowserSupabaseClient())
+
   return (
     <>
       <Head>
@@ -11,7 +19,13 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Component {...pageProps} />
+      <SessionContextProvider
+        supabaseClient={supabaseClient}
+        initialSession={pageProps.initialSession}
+      >
+        <Component {...pageProps} />
+
+      </SessionContextProvider>
     </>
   )
 }

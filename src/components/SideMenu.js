@@ -1,6 +1,17 @@
 import Link from "next/link";
+import { supabase } from '../lib/supabaseClient';
+import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 
-export function SideMenu() {
+
+async function signout() {
+  const { error } = await supabase.auth.signOut()
+  console.log("ログアウトボタンが押された");
+}
+
+export function SideMenu(props) {
+
+  // const user = useUser();
+
   return (
     <div className="h-full border-r w-60 flex flex-col">
 
@@ -27,9 +38,11 @@ export function SideMenu() {
           </li>
         </ul>
 
+        {/* {props.user.user_metadata.name} */}
+
         {/* footer-area */}
         <div className="p-6 border-t text-slate-400">
-          <Link href="/">log out</Link>
+          <button onClick={signout}>log out</button>
         </div>
       
       </div>
